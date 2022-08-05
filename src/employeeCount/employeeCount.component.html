@@ -1,0 +1,14 @@
+<span> Show :</span>
+
+<input type="radio" (change)="onRadioButtonSelectionChange()"
+[(ngModel)]="selectedRBValue" 
+value="All" name="empOptions" >{{ 'All ('+ allCount+')'}}
+
+<input type="radio" (change)="onRadioButtonSelectionChange()"
+  [(ngModel)]="selectedRBValue" 
+  value="male" name="empOptions" > {{ 'Male ('+ maleCount+')'}} 
+
+<input type="radio" (change)="onRadioButtonSelectionChange()"
+  [(ngModel)]="selectedRBValue"  
+  value="female" name="empOptions" > {{ 'Female ('+ femaleCount+')'}} 
+

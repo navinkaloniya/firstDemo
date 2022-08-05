@@ -1,0 +1,80 @@
+
+
+<table HighLight [foreColor]="'white'"  [backgroundColor]="'red'" class="table table-striped" border="1">
+    <thead>
+        <th>Employee Code</th>
+        <th>Full Name</th>
+        <th>Gender</th>
+        <th>Annual Salary</th>
+    </thead>
+    <tbody >
+        <ng-container *ngFor='let emp of employees'[ngSwitch]="emp.gender" >
+         <tr *ngSwitchCase="'male'" >
+        
+        <td><span  >{{emp.code  }}</span></td>
+        <td>{{emp.name | EmployeeTitle:emp.gender}}</td>
+        <td>{{emp.gender}}</td>
+        <td>{{emp.salary |currency:'CAD':'symbol' }}</td>
+        <!-- <td>{{emp.salary  |number:'4.1-2' }}</td> -->
+        </tr>
+        <tr *ngSwitchCase="'female'" >
+        
+            <td>{{emp.code  }}</td>
+            <td>{{emp.name | EmployeeTitle:emp.gender}}</td>
+            <td>{{emp.gender}}</td>
+            <td>{{emp.salary |currency:'CAD':'symbol' }}</td>
+            <!-- <td>{{emp.salary  |number:'4.1-2' }}</td> -->
+            </tr>
+            <tr *ngSwitchDefault >
+        
+                <td colspan="4">  Employee record is not valid.</td>
+                </tr>
+   </ng-container>
+    <tr *ngIf="employees.length==0" >
+        <td colspan="4"> No Employee(s) record found.</td>
+    </tr>
+</tbody>
+</table>
+
+<input type="button" class="" value="Class" (click)="toggleClass()">
+<span HighLight [foreColor]="'white'"  [backgroundColor]="'red'" > This is my attribute directive.</span><br>
+<span [ngClass]="{'red':true}" > This is my attribute directive.</span> <br>
+<span [class.blue]="showColor" > This is my attribute directive.</span><br>
+<span [ngClass]="{'red':showColor,'font':!showColor}" > This is my attribute directive.</span> <br>
+
+<h1> Styles Attribute</h1>
+
+<input type="button" value="Click Me" style="color: red; "
+[style.font-weight]="'bold'"
+>
+<input type="button" value="Click Me" style="color: red; "
+[style.font-weight]="isBold?'bold':'normal'"
+>
+<input type="button" value="Click Me" style="color: red; "
+[style.font-size.px]="fontSize"
+>
+<input type="button" value="Click Me"
+[ngStyle]="{'color': 'red','font-size': '20px'}"
+>
+<input type="button" value="Click Me"
+[ngStyle]="insertStyle()"
+>
+
+
+<!-- Attribute Directive - To change the appearance of a component or a DOM element.
+ngClass- Is used to change the class attribute that is bound to a component or html element
+ngStyle - is used to chage the element style attribute for HTML element.  -->
+
+
+
+
+
+
+Student List
+10 
+
+Name, Gender,RollNo,
+(subject marks<35) - blue color
+Math,English,Hindi,SocialScience , 
+(TotalMarks) <130 Red Color font bold
+(TotalMarks) >130 Green Color

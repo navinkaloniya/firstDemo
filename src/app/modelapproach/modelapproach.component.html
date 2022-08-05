@@ -1,0 +1,64 @@
+<form #userForm="ngForm"  (ngSubmit)="saveUser(userForm)" >
+    <div  class="row ">
+       <h1>Employee Form</h1>
+        <div class="row">
+    
+          
+            <div class="mb-3 row">
+                <label for="fullname" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Name</mat-label>
+                        <input required id="fullname" type="text" name="fullname" #fullName="ngModel" [(ngModel)]="user.name" matInput >
+                        <mat-error *ngIf="fullName.invalid">
+                            Name is <strong>required</strong>
+                          </mat-error>
+                      </mat-form-field>
+                </div>
+              </div>
+            
+            <div class="mb-3 row">
+                <label for="fullname" class="col-sm-2 col-form-label">Gender</label>
+                <div class="col-sm-10">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Gender</mat-label>
+                        <mat-select selectValidate name="gender" #gender="ngModel" [(ngModel)]="user.gender">
+                         
+                            <mat-option *ngFor="let gen of genders" [value]="gen.viewValue">
+                            {{gen.Text}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="gender.errors?.['defaultSelected']">
+                            Gender is <strong>required</strong>
+                          </mat-error>
+                      </mat-form-field>
+                </div>
+              </div>
+           
+            <div class="mb-3 row">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Email Id</mat-label>
+                        <input required id="emailId" email type="text" #emailControl="ngModel"  name="emailId" [(ngModel)]="user.email" matInput >
+                        <mat-error *ngIf="emailControl.invalid && emailControl.value==''">
+                            Email is <strong>required</strong>
+                          </mat-error>
+                          <mat-error *ngIf="emailControl.errors?.['email']">
+                            Email is <strong>incorrect</strong>
+                          </mat-error>
+                      </mat-form-field>
+                </div>
+              </div>
+        </div>
+        <div class="col-sm-12">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+   
+    </form>
+    
+<!-- 
+ errors property of Form :ngForm
+ errors:null - The respective control is valid without any error
+ errors: {required:true} - This control have a requied error in it. -->

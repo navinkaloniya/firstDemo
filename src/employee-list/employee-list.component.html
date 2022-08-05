@@ -1,0 +1,56 @@
+
+<!-- Employee List component will be Container component or Parent component
+because we want to include a EmployeeCountComponent in it that contains the 
+html for filtering the employee data by radio button 
+
+EmployeeCount component will be out child component or Nested component 
+From Parent to Child Component
+
+1) Declare properties in child component with @INput Decorator and import input
+from Core library
+2) INitialzed with a default value for property
+3) Declare the methods in the parfent component for sending the data to the 
+child component
+4) Use Property binding to set the value for property of child component in the 
+child tag itself
+-->
+
+<emp-count  [allCount]="getTotalEmployeeCount()"
+[maleCount]="getMaleEmployeeCount()"
+[femaleCount]="getFemaleEmployeeCount()"
+(rbselectionChange)="gettingtheSelectedRadioButtonValue($event)"
+></emp-count>
+
+
+
+<div class="col-md-6">
+<table class="table table-striped" border="1">
+    <thead>
+        <th>Employee Code</th>
+        <th>Full Name</th>
+        <th>Gender</th>
+        <th>Annual Salary</th>
+    </thead>
+    <tbody>
+        <ng-container *ngFor='let emp of employees'>
+         <tr  *ngIf="selectedRbValue=='All' || emp.gender==selectedRbValue" >
+        
+        <td>{{emp.code  }}</td>
+        <td>{{emp.name | EmployeeTitle:emp.gender}}</td>
+        <td>{{emp.gender}}</td>
+        <td>{{emp.salary |currency:'CAD':'symbol' }}</td>
+        <!-- <td>{{emp.salary  |number:'4.1-2' }}</td> -->
+        </tr>
+   </ng-container>
+    <tr *ngIf="employees.length==0" >
+        <td colspan="4"> No Employee(s) record found.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+
+
+Structual Directive - ngIf, ngFor,ngSwitch
+that change the behaviour of a component or element by modification in the template or
+the dom in the UI

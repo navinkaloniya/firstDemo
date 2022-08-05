@@ -1,0 +1,20 @@
+.red{
+    color: red;
+}
+.blue{
+    color: blue;
+}
+.green{
+    color: darkcyan;
+}
+
+.font{
+    font-size: 25px;
+   
+}
+.male-row{
+    background-color: aquamarine;
+}
+.female-row{
+    background-color: darkgray;
+}

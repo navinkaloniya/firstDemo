@@ -1,0 +1,54 @@
+
+<style>
+    /* .table-class{
+        color: red;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;    
+    } */
+</style>
+<!-- you can add the styles in the HTML file itself by using a style tag -->
+<!-- <img height="20" width="100" src="{{imagesrc}}"> -->
+<!-- interpolation -->
+<!-- <input type="button" id="btn1" value="Click Me" disabled="{{isDisabled}}" /> -->
+<!-- Property Binding -->
+<!-- <input type="button" id="btn1" (click)="clicked(5)" value="Click Me" [disabled]="isDisabled" /> -->
+<!-- Attribute- Which get value from the server when page created for the
+ first time in the browser and after that its value can not be changed
+value= TOM
+ Property
+ value= TOM  -->
+
+<!-- <input id="name" type="text" value="TOM"> -->
+<table class="table-class" border="1">
+    <tr>
+        <td> First Name </td>
+        <td> {{'Name =' + firstName}} </td>
+    </tr>
+    <tr>
+        <td> Gender </td>
+        <td> {{gender==""?'No gender provided':gender}} </td>
+    </tr>
+    <tr>
+        <!-- {{10+20-90*3}} -->
+        <td> Age </td>
+        <td> {{age}} </td>
+    </tr>
+    <tr>
+        <td> Pincode </td>
+        <td> {{pincode}} </td>
+    </tr>
+    <tr>
+        <td>Full details</td>
+        <td>{{getEmployeeDetails()}}</td>
+    </tr>
+    <tr>
+        <td [attr.colspan]="colspanNo"> footer</td>
+    </tr>
+    <tr>
+        <td attr.colspan="{{colspanNo}}"> footer</td>
+    </tr>
+</table>
+
+<!-- 
+one way data binding- from component to html template
+one way data binding- from HTML to component class event binding
+Two way data binding- from component to HTML and from HTML to component -->

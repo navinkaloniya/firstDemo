@@ -1,0 +1,37 @@
+
+<div class="card"> 
+    <div class="header">
+      <ng-content select="header" ></ng-content>
+    </div>
+    <div class="content">
+        <ng-content select="content" ></ng-content>
+      </div> 
+      <div class="footer">
+        <ng-content select="footer" ></ng-content>
+      </div>
+ </div>
+
+ <button type="button">
+     <ng-content ></ng-content>
+    </button>
+
+    ------------------------------By Class----------------------
+    
+<div class="card"> 
+    <div class="header">
+      <ng-content select=".header" ></ng-content>
+    </div>
+    <div class="content">
+        <ng-content select=".content" ></ng-content>
+      </div> 
+      <div class="footer">
+        <ng-content select=".footer" ></ng-content>
+      </div>
+ </div>
+<!-- 
+Content projection is a way to send the HTML content from the parent component to
+child component that we can not do with the help of @Input() decorator.
+
+The child component will display the template into a designed spot. 
+  we use ng-content to define to position.
+-->
