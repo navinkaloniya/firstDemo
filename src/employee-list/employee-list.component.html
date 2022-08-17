@@ -30,6 +30,7 @@ child tag itself
         <th>Full Name</th>
         <th>Gender</th>
         <th>Annual Salary</th>
+        <th>Actions</th>
     </thead>
     <tbody>
         <ng-container *ngFor='let emp of employees'>
@@ -40,6 +41,10 @@ child tag itself
         <td>{{emp.gender}}</td>
         <td>{{emp.salary |currency:'CAD':'symbol' }}</td>
         <!-- <td>{{emp.salary  |number:'4.1-2' }}</td> -->
+        <td>
+            <button class="btn btn-sm btn-primary" type="button" (click)="navigate(emp)">{{emp.name}}</button>
+            <a class="btn btn-sm btn-primary" [routerLink]="['/employee',emp.code]" aria-current="page" href="#">{{emp.name}}</a>
+        </td>
         </tr>
    </ng-container>
     <tr *ngIf="employees.length==0" >
@@ -47,6 +52,7 @@ child tag itself
     </tr>
 </tbody>
 </table>
+<button type="button" (click)="openDialog()">Open Dialog</button>
 </div>
 
 

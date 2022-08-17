@@ -15,36 +15,34 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContentProjectComponent } from 'src/contentproject/contentproject.component';
 import { TemplateFormComponent } from 'src/templateForm/templateForm.component';
 
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
-import {MatTableModule} from '@angular/material/table';
 import { ModelapproachComponent } from './modelapproach/modelapproach.component';
 import { SelectValidator } from 'src/shared/Directive/select.validator';
 import { PersonModuleModule } from './person-module/person-module.module';
 import { RouterModule, Routes } from '@angular/router';
-
+import { DepartmentComponent } from 'src/department/department.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { EmployeeService } from 'src/Services/Employee/employee.service';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
     AppComponent,EmployeeComponent, EmployeeListComponent,EmployeeCountComponent,
     EmployeeTitlePipe,SimpleChangesComponent,
-  DirectiveComponent,  HighLightDirective,
+  DirectiveComponent,  HighLightDirective,DepartmentComponent,
   ContentProjectComponent,TemplateFormComponent, ModelapproachComponent,
-  SelectValidator
+  SelectValidator,
+  PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatInputModule,
-    MatSelectModule,
-    MatTableModule,
-    PersonModuleModule
+    PersonModuleModule,
+    MaterialModule
+    //RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent],
   
 })

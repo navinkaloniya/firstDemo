@@ -1,4 +1,5 @@
 import { Component} from'@angular/core'
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
 selector:'emp',
@@ -10,6 +11,17 @@ templateUrl:'./employee.component.html',
 styleUrls:['./employee.component.css']
 })
 export class EmployeeComponent {
+    //snapshot approach we use( Activated Route class)
+    //observable
+    EmployeeId:string|null='';
+    //EmployeeId:number=0;
+    constructor(private _route:ActivatedRoute){
+
+    }
+    ngOnInit(){
+     this.EmployeeId= this._route.snapshot.paramMap.get('id');
+     
+    }
 firstName:string="Tom";
 gender:string="Male";
 age:number=29;
@@ -23,4 +35,5 @@ getEmployeeDetails():string{
 clicked(no:number){
     console.log(no);
 }
+
 }
