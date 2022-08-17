@@ -1,5 +1,5 @@
 import { Component} from'@angular/core'
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, TitleStrategy } from '@angular/router';
 
 @Component({
 selector:'emp',
@@ -14,13 +14,19 @@ export class EmployeeComponent {
     //snapshot approach we use( Activated Route class)
     //observable
     EmployeeId:string|null='';
+    empCode:string="";
     //EmployeeId:number=0;
     constructor(private _route:ActivatedRoute){
 
     }
     ngOnInit(){
-     this.EmployeeId= this._route.snapshot.paramMap.get('id');
-     
+    // this.EmployeeId= this._route.snapshot.paramMap.get('id');
+     this.EmployeeId= this._route.snapshot.paramMap.get('code');
+     if(this._route.snapshot.queryParamMap.has('empcode')){
+
+this.empCode= this._route.snapshot.queryParamMap.get('empcode')!;
+     }
+   let keys:string[]=  this._route.snapshot.queryParamMap.keys;
     }
 firstName:string="Tom";
 gender:string="Male";

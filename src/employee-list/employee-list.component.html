@@ -43,7 +43,13 @@ child tag itself
         <!-- <td>{{emp.salary  |number:'4.1-2' }}</td> -->
         <td>
             <button class="btn btn-sm btn-primary" type="button" (click)="navigate(emp)">{{emp.name}}</button>
+            <!-- Required route parameter syntax -->
             <a class="btn btn-sm btn-primary" [routerLink]="['/employee',emp.code]" aria-current="page" href="#">{{emp.name}}</a>
+            <!-- Optional route parameter syntax -->
+            <a class="btn btn-sm btn-success" [routerLink]="['/employee',{code:emp.code}]" aria-current="page" href="#">{{emp.name}}</a>
+            <!-- Tag with Query String -->
+            <a class="btn btn-sm btn-primary" queryParamsHandling="preserve" [queryParams]="{'empcode':'123'}"  [routerLink]="['/employee',emp.code]" aria-current="page" href="#">{{emp.name}}</a>
+        
         </td>
         </tr>
    </ng-container>
@@ -54,7 +60,8 @@ child tag itself
 </table>
 <button type="button" (click)="openDialog()">Open Dialog</button>
 </div>
-
+<button class="btn btn-sm btn-primary" type="button" (click)="preserveQuery()">Query Preserve</button>
+          
 
 
 Structual Directive - ngIf, ngFor,ngSwitch

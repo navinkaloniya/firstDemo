@@ -7,8 +7,10 @@ import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes:Routes=[
-  { path:'employee',component:EmployeeComponent},
+  //{ path:'employee',component:EmployeeComponent},
+  //Required route parameter ( start with forward slash with a semi colon with it)
   { path:'employee/:id',component:EmployeeComponent},
+  //{ path:'employee',component:EmployeeComponent},
   { path:'employee/:emp-id/:name',component:EmployeeComponent},
   { path:'employee-list',component:EmployeeListComponent},
   { path:'dept',component:DepartmentComponent},

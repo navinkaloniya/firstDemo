@@ -49,7 +49,15 @@ value= TOM
     <tr>
         <td>Employee Id from Route : </td>
         <td>{{EmployeeId}}</td>
-    </tr>
+</tr>
+        <tr>
+            <td>
+                Employee code from query string
+            </td>
+            <td>{{empCode}}</td>
+        </tr>
+   
+    <a class="btn btn-sm btn-success" queryParamsHandling="preserve" [routerLink]="['/employee-list']" aria-current="page" href="#">Go To Employee List</a>
 </table>
 
 <!-- 

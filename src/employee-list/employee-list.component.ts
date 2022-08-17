@@ -61,10 +61,17 @@ openDialog(){
 navigate(emp:IEmployee){
    // alert(emp.code);
     //this._router.navigate(['employee']);
-if(emp.code=='6')
-this._router.navigate(['/dept']);
-else
-    this._router.navigate(['/employee',emp.code]);
+
+//this._router.navigate(['/employee',emp.code]); //Required route 
+   // this._router.navigate(['/employee',{code:emp.code}]); //optional route 
+
+    this._router.navigate(['/employee',emp.code],
+    {queryParams:{'empcode':emp.code,'name':emp.name}, queryParamsHandling:'merge'});
+}
+
+preserveQuery(){
+    this._router.navigate(['/dept'],
+    {queryParams:{'deptcode':'1','name':'HR'}, queryParamsHandling:'preserve'});
 }
 }
 
