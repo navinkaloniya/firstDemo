@@ -15,6 +15,9 @@ child component
 child tag itself
 -->
 
+<input type="text"  [(ngModel)]="colour" (keyup)="setcolour($event)" 
+[style.background]="colour"  > {{colour}}
+
 <emp-count  [allCount]="getTotalEmployeeCount()"
 [maleCount]="getMaleEmployeeCount()"
 [femaleCount]="getFemaleEmployeeCount()"

@@ -18,6 +18,9 @@ value= TOM
  value= TOM  -->
 
 <!-- <input id="name" type="text" value="TOM"> -->
+<input type="text"  [(ngModel)]="colour" (keyup)="setcolour($event)" 
+[style.background]="colour" >
+
 <table class="table-class" border="1">
     <tr>
         <td> First Name </td>

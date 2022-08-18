@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { IEmployee} from 'src/Model/Employee/employeeModel'
 import { EmployeeService } from 'src/Services/Employee/employee.service';
+import { UserService } from 'src/Services/user/user.service';
 import { EmployeeListDialogComponent } from './emloyee-list-dialog/employee-list-dialog';
 
 @Component({
@@ -16,15 +17,28 @@ export class EmployeeListComponent{
 
     selectedRbValue:string="All";
     employees:IEmployee[]= [];
-
+    colour:string='';
+    //Manually creating the instance for the user service
+    //_userService1:UserService= new UserService();
+    //Angular injector
     constructor(private _empService:EmployeeService,
+        private _userService:UserService,
         private dialog:MatDialog,
         private _router:Router){
       
     }
-
+    //Get the color from service
+//  getcolour():string {
+//    this.colour= this._userService.backcolor;
+//  }
+ //set the color of service property
+ setcolour(value:any){
+   // console.log(value.target.value);
+this._userService.backcolor= value.target.value;
+ }
     ngOnInit() {
         this.employees= this._empService.getEmployees();
+        this.colour= this._userService.backcolor;
        //console.log(this._empService.getName(this.employees[0].name));
     }
         
@@ -71,7 +85,7 @@ navigate(emp:IEmployee){
 
 preserveQuery(){
     this._router.navigate(['/dept'],
-    {queryParams:{'deptcode':'1','name':'HR'}, queryParamsHandling:'preserve'});
+    {queryParams:{'deptcode':'1','name':'HR'}, queryParamsHandling:'merge'});
 }
 }
 

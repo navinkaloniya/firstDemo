@@ -23,6 +23,7 @@ import { DepartmentComponent } from 'src/department/department.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { EmployeeService } from 'src/Services/Employee/employee.service';
 import { MaterialModule } from './material.module';
+import { UserService } from 'src/Services/user/user.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { MaterialModule } from './material.module';
     MaterialModule
     //RouterModule.forRoot(routes)
   ],
-  providers: [EmployeeService],
+  providers: [EmployeeService,UserService],
   bootstrap: [AppComponent],
   
 })
