@@ -18,6 +18,9 @@ export class EmpDataService implements InMemoryDbService{
             {code:'3',name:'Nick',gender:'male',salary:8000.565515},
             {code:'4',name:'Mary',gender:'female',salary:7000},
             {code:'5',name:'Mark',gender:'male',salary:3000.256444}
+        ],
+        depts:[
+            
         ]
     };    
     }
