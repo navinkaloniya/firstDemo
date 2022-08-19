@@ -24,6 +24,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { EmployeeService } from 'src/Services/Employee/employee.service';
 import { MaterialModule } from './material.module';
 import { UserService } from 'src/Services/user/user.service';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { EmpDataService } from 'src/Services/Employee/emp-data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,9 @@ import { UserService } from 'src/Services/user/user.service';
     FormsModule,
     BrowserAnimationsModule,
     PersonModuleModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(EmpDataService)
     //RouterModule.forRoot(routes)
   ],
   providers: [EmployeeService,UserService],

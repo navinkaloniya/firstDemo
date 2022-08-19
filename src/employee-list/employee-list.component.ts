@@ -37,9 +37,14 @@ export class EmployeeListComponent{
 this._userService.backcolor= value.target.value;
  }
     ngOnInit() {
-        this.employees= this._empService.getEmployees();
+        // To get the data in normal way
+        //this.employees= this._empService.getEmployees();
+
+        // To get the data from observable 
+        this._empService.getEmployeeByApi().subscribe((empdata)=>{
+            this.employees= empdata;
+        })
         this.colour= this._userService.backcolor;
-       //console.log(this._empService.getName(this.employees[0].name));
     }
         
 // employees:IEmployee[]= [
