@@ -6,33 +6,33 @@
   </div>
   
 </div>
-
+<form #empForm="ngForm" (ngSubmit)="submit(empForm)" >
 <div class="row">
   <div class="col-md-1"></div>
 <div class="col-md-3">
   <mat-form-field class="example-form-field" appearance="fill">
       <mat-label>First Name</mat-label>
-      <input matInput type="text" [(ngModel)]="firstName">
+      <input matInput type="text" name="name" [(ngModel)]="emp.name">
      
     </mat-form-field>
   </div>
   <div class="col-md-3">
     <mat-form-field class="example-form-field" appearance="fill">
         <mat-label>Middle Name</mat-label>
-        <input matInput type="text" [(ngModel)]="firstName">
+        <input matInput type="text" name="gender" [(ngModel)]="emp.gender">
        
       </mat-form-field>
     </div>
     <div class="col-md-3">
       <mat-form-field class="example-form-field" appearance="fill">
           <mat-label>Last Name</mat-label>
-          <input matInput type="text" [(ngModel)]="firstName">
+          <input matInput type="text" name="salary" [(ngModel)]="emp.salary">
          
         </mat-form-field>
       </div>
       <div class="col-md-2"></div>
 </div>
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-1"></div>
 <div class="col-md-3">
   <mat-form-field class="example-form-field" appearance="fill">
@@ -81,13 +81,14 @@
         </mat-form-field>
       </div>
       <div class="col-md-2"></div>
-</div>
+</div> -->
 <div class="row">
   
 <div class="col-md-12 center">
-  <button mat-raised-button class="btn btn-primary">Create</button>
+  <button type="submit" mat-raised-button class="btn btn-primary">Create</button>
   </div>
  
 </div>
 
 
+</form>

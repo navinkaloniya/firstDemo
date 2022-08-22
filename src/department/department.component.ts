@@ -1,4 +1,6 @@
 import { Component} from '@angular/core'
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { IEmployee } from 'src/Model/Employee/employeeModel';
 import { EmployeeService } from 'src/Services/Employee/employee.service';
 
@@ -32,6 +34,12 @@ export class DepartmentComponent{
     displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
     dataSource= ELEMENT_DATA;
     employees:IEmployee[]= [];
+    emp:IEmployee={
+      code:'',
+      name:'',
+      gender:'',
+      salary:0
+    };
     firstName:string="";
     gender:string="Male";
     age:number=29;
@@ -39,7 +47,8 @@ export class DepartmentComponent{
     imagesrc="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png";
     isDisabled:boolean=false;
     colspanNo:number=2;
-    constructor(private _empService:EmployeeService){
+    constructor(private _empService:EmployeeService,
+      private route:Router){
       
     }
 
@@ -47,7 +56,12 @@ export class DepartmentComponent{
         //this.employees= this._empService.getEmployees();
         //this.dataSource= this._empService.getEmployees();
     }
-   
+    submit(form:NgForm){
+console.log(this.emp);
+this._empService.createEmployeebyApi(this.emp);
+this._empService.DeleteEmployeebyApi(this.emp.code);
+this.route.navigate(['/employee-list']);
+    }
 }
 
 // User
