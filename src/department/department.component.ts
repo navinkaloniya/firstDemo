@@ -32,7 +32,13 @@ export class DepartmentComponent{
     displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
     dataSource= ELEMENT_DATA;
     employees:IEmployee[]= [];
-
+    firstName:string="";
+    gender:string="Male";
+    age:number=29;
+    pincode:number=202020;
+    imagesrc="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png";
+    isDisabled:boolean=false;
+    colspanNo:number=2;
     constructor(private _empService:EmployeeService){
       
     }

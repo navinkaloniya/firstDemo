@@ -1,35 +1,93 @@
 
-<table class="row" matSort mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-11">
+    <h1 class="h1-top">Create Employee</h1>
+  </div>
+  
+</div>
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
+<div class="row">
+  <div class="col-md-1"></div>
+<div class="col-md-3">
+  <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput type="text" [(ngModel)]="firstName">
+     
+    </mat-form-field>
+  </div>
+  <div class="col-md-3">
+    <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Middle Name</mat-label>
+        <input matInput type="text" [(ngModel)]="firstName">
+       
+      </mat-form-field>
+    </div>
+    <div class="col-md-3">
+      <mat-form-field class="example-form-field" appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input matInput type="text" [(ngModel)]="firstName">
+         
+        </mat-form-field>
+      </div>
+      <div class="col-md-2"></div>
+</div>
+<div class="row">
+  <div class="col-md-1"></div>
+<div class="col-md-3">
+  <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Pincode</mat-label>
+      <input matInput type="text" [(ngModel)]="firstName">
+     
+    </mat-form-field>
+  </div>
+  <div class="col-md-3">
+    <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Address1</mat-label>
+        <input matInput type="text" [(ngModel)]="firstName">
+       
+      </mat-form-field>
+    </div>
+    <div class="col-md-3">
+      <mat-form-field class="example-form-field" appearance="fill">
+          <mat-label>Address 2</mat-label>
+          <input matInput type="text" [(ngModel)]="firstName">
+         
+        </mat-form-field>
+      </div>
+      <div class="col-md-2"></div>
+</div>
+<div class="row">
+  <div class="col-md-1"></div>
+<div class="col-md-3">
+  <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Country</mat-label>
+      <input matInput type="text" [(ngModel)]="firstName">
+     
+    </mat-form-field>
+  </div>
+  <div class="col-md-3">
+    <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>State</mat-label>
+        <input matInput type="text" [(ngModel)]="firstName">
+       
+      </mat-form-field>
+    </div>
+    <div class="col-md-3">
+      <mat-form-field class="example-form-field" appearance="fill">
+          <mat-label>City</mat-label>
+          <input matInput type="text" [(ngModel)]="firstName">
+         
+        </mat-form-field>
+      </div>
+      <div class="col-md-2"></div>
+</div>
+<div class="row">
   
-    <!-- Position Column --> 
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-    </ng-container>
-  
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
-  
-    <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef> Weight </th>
-      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-    </ng-container>
-  
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef> Symbol </th>
-      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table> 
+<div class="col-md-12 center">
+  <button mat-raised-button class="btn btn-primary">Create</button>
+  </div>
+ 
+</div>
 
-  
+

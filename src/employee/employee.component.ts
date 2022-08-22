@@ -1,5 +1,6 @@
 import { Component} from'@angular/core'
 import { ActivatedRoute, TitleStrategy } from '@angular/router';
+import { EmployeeService } from 'src/Services/Employee/employee.service';
 import { UserService } from 'src/Services/user/user.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class EmployeeComponent {
     //_userService:UserService= new UserService();
     //EmployeeId:number=0;
     constructor(private _route:ActivatedRoute,
-        private _userService:UserService,){
+        private _userService:UserService,
+        private _empService:EmployeeService){
 
     }
 
@@ -43,6 +45,10 @@ export class EmployeeComponent {
 this.empCode= this._route.snapshot.queryParamMap.get('empcode')!;
      }
    let keys:string[]=  this._route.snapshot.queryParamMap.keys;
+   this._empService.getempbyid('1').subscribe((data)=>{
+    console.log(data);
+   });
+   
     }
 firstName:string="Tom";
 gender:string="Male";

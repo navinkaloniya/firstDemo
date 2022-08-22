@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class PersonComponent implements OnInit {
 
   constructor() { }
-
+  pincode:number=202020;
   ngOnInit(): void {
   }
 

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable} from '@angular/core'
-import { Observable } from 'rxjs';
+import { Observable, of, ReplaySubject } from 'rxjs';
 import { IEmployee } from 'src/Model/Employee/employeeModel'
 
 //If we want to use the data accross multiple components and the logic then we 
@@ -10,6 +10,7 @@ import { IEmployee } from 'src/Model/Employee/employeeModel'
 @Injectable()
 export class EmployeeService {
     employeeURL:string='api/employees';
+    employees:any;
     constructor(private _http:HttpClient){
 
     }
@@ -25,6 +26,7 @@ export class EmployeeService {
     getEmployeeByApi():Observable<IEmployee[]>{
        return this._http.get<IEmployee[]>(this.employeeURL);
     }
+
     // getEmployees():IEmployee[] {
     //     return this.employees;
     // }
@@ -32,8 +34,13 @@ export class EmployeeService {
     getName(name:string):string{
         return "Mr. "+name;
     }
-    // getempbyid(id:string):IEmployee|undefined {
-    //     return this.employees.find(x=>x.code==id);
-    // }
-
+    getempbyid(id:string) {
+    let subject= new ReplaySubject();
+     this._http.get<IEmployee[]>(this.employeeURL).subscribe((data)=>{
+     this.employees= data.find(x=>x.code==id);
+   subject.next(this.employees);
+   subject.complete();
+    });
+return subject;
+    }
 }
