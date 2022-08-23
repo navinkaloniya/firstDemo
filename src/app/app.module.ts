@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { EmployeeComponent } from 'src/employee/employee.component';
-import{ FormsModule } from '@angular/forms'
+import{ FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +27,7 @@ import { UserService } from 'src/Services/user/user.service';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { EmpDataService } from 'src/Services/Employee/emp-data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveDemoComponent } from './Reactive-Form-Approach/reactive-form-demo.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
   DirectiveComponent,  HighLightDirective,DepartmentComponent,
   ContentProjectComponent,TemplateFormComponent, ModelapproachComponent,
   SelectValidator,
-  PageNotFoundComponent
+  PageNotFoundComponent,ReactiveDemoComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     PersonModuleModule,
     MaterialModule,
     HttpClientModule,
+    ReactiveFormsModule,
     HttpClientInMemoryWebApiModule.forRoot(EmpDataService)
     //RouterModule.forRoot(routes)
   ],

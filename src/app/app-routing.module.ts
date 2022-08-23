@@ -6,6 +6,7 @@ import { EmployeeComponent } from 'src/employee/employee.component';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PersonComponent } from './person-module/person-module.component';
+import { ReactiveDemoComponent } from './Reactive-Form-Approach/reactive-form-demo.component';
 
 const routes:Routes=[
   //{ path:'employee',component:EmployeeComponent},
@@ -17,6 +18,7 @@ const routes:Routes=[
   { path:'dept',component:DepartmentComponent},
   { path:'person',component:PersonComponent},
   {path:'',redirectTo:'employee',pathMatch:'full'},
+  {path:'reactive-form',component:ReactiveDemoComponent},
   {path:'**',component:PageNotFoundComponent}
 ];
 

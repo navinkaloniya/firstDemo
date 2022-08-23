@@ -1,0 +1,92 @@
+<form  [formGroup]="personForm" (ngSubmit)="submit()">
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h1 class="h1-top">Person</h1>
+    </div>
+    
+  </div>
+  
+  <div class="row">
+    <div class="col-md-1"></div>
+  <div class="col-md-3">
+    <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Full Name</mat-label>
+        <input matInput type="text" formControlName="name">
+       
+      </mat-form-field>
+    </div>
+    <div class="col-md-3">
+      <mat-form-field class="example-form-field" appearance="fill">
+          <mat-label>Age</mat-label>
+          <input matInput type="text" formControlName="age" >
+         
+        </mat-form-field>
+      </div>
+      <div class="col-md-3">
+        <!-- <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput type="text" >
+           
+          </mat-form-field> -->
+        </div>
+        <div class="col-md-2"></div>
+  </div>
+  <div formGroupName="skills" class="row">
+    <div class="col-md-1"></div>
+  <div class="col-md-3">
+    <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Skill</mat-label>
+        <input matInput type="text" formControlName="skillName">
+       
+      </mat-form-field>
+    </div>
+    <div class="col-md-3">
+      <mat-form-field class="example-form-field" appearance="fill">
+          <mat-label>Experience</mat-label>
+          <input matInput type="text" formControlName="experience" >
+         
+        </mat-form-field>
+      </div>
+      <div class="col-md-3">
+        <!-- <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput type="text" >
+           
+          </mat-form-field> -->
+        </div>
+        <div class="col-md-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-1"></div>
+  <div class="col-md-1 ">
+    <button mat-raised-button class="btn btn-primary">Create</button>
+    </div>
+    <div class="col-md-1 ">
+        <button mat-raised-button (click)="loaddata()" class="btn btn-success">Load Data</button>
+        </div>
+  </div>
+</form>
+<table class="table" border="1">
+    <thead>
+        <th> Form Group</th>
+        <th>Form Control (Name) </th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+               Touched:  {{personForm.touched}}
+               <br/> Dirty : {{personForm.dirty}}
+               <br/> Valid : {{personForm.valid}}
+               <br/> Value : {{personForm.value| json}}
+            </td>
+       
+            <td>
+               Touched:  {{personForm.controls['name'].touched}}
+               <br/> Dirty : {{personForm.controls['name'].dirty}}
+               <br/> Valid : {{personForm.controls['name'].valid}}
+               <br/> Value : {{personForm.controls['name'].value}}
+            </td>
+        </tr>
+    </tbody>
+</table>
