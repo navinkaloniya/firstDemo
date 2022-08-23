@@ -13,14 +13,25 @@
     <mat-form-field class="example-form-field" appearance="fill">
         <mat-label>Full Name</mat-label>
         <input matInput type="text" formControlName="name">
-       
+        <mat-error *ngIf="personForm.get('name')!.errors!['required']">
+        Name is required
+        </mat-error>
       </mat-form-field>
+      
     </div>
     <div class="col-md-3">
       <mat-form-field class="example-form-field" appearance="fill">
           <mat-label>Age</mat-label>
           <input matInput type="text" formControlName="age" >
-         
+         <mat-error *ngIf="personForm.get('age')!.errors!==null && personForm.get('age')!.errors!['min']">
+         Age must be greater than 0.
+         </mat-error>
+         <mat-error *ngIf="personForm.get('age')!.errors!==null && personForm.get('age')!.errors!['max']">
+            Age must be less than 100.
+            </mat-error>
+            <mat-error *ngIf="personForm.get('age')!.errors!==null && personForm.get('age')!.errors!['required']">
+                Age is required.
+                </mat-error>
         </mat-form-field>
       </div>
       <div class="col-md-3">
@@ -38,8 +49,17 @@
     <mat-form-field class="example-form-field" appearance="fill">
         <mat-label>Skill</mat-label>
         <input matInput type="text" formControlName="skillName">
-       
+        <mat-error *ngIf="personForm.get('skills.skillName')!.errors!==null && personForm.get('skills.skillName')!.errors!['required']">
+            Skill is required.
+            </mat-error>
+            <mat-error *ngIf="personForm.get('skills.skillName')!.errors!==null && personForm.get('skills.skillName')!.errors!['minlength']">
+                Skill name atleast contains 3 characters.
+                </mat-error>
+                <mat-error *ngIf="personForm.get('skills.skillName')!.errors!==null && personForm.get('skills.skillName')!.errors!['maxlength']">
+                    Skill name atmost contains 10 characters.
+                    </mat-error>
       </mat-form-field>
+      
     </div>
     <div class="col-md-3">
       <mat-form-field class="example-form-field" appearance="fill">
