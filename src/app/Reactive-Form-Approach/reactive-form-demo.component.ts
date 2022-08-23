@@ -43,6 +43,7 @@ export class ReactiveDemoComponent implements OnInit {
     // console.log(this.personForm.controls['name'].pristine);
     // console.log(this.personForm.controls['name'].dirty);
     console.log(this.personForm.controls['skills'].get('skillName'));
+    console.log(this.personForm.get('skills.skillName')!.dirty);
     console.log( (<FormGroup>this.personForm.controls['skills']).controls['skillName']);
 
   }
