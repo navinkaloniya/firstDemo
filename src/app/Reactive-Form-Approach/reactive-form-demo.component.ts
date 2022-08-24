@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms';
+import { CustomValidators } from 'src/validations/validators';
 
 @Component({
   selector: 'app-reactive-demo',
@@ -23,12 +24,47 @@ export class ReactiveDemoComponent implements OnInit {
 
     this.personForm= this._fb.group({
       name:['',Validators.required],
-      age:[null,[Validators.min(1),Validators.max(100),Validators.required]],
+      //validation withour parameter
+      //email:['',[Validators.required,CustomValidators.emailCheck]],
+      // validation with parameter
+      email:['',[Validators.required,CustomValidators.emailCheckParam('gmail')]],
+      age:[,[Validators.min(1),Validators.max(100),Validators.required]],
       skills:this._fb.group({
         skillName:['',[Validators.minLength(3),Validators.maxLength(10),Validators.required]],
         experience:[]
       })
     });
+    //For control in main form Group
+    this.personForm.get('name')!.valueChanges.subscribe(value=>{
+      console.log(value);
+  });
+// For control in nested form Group
+    this.personForm.get('skills.skillName')!.valueChanges.subscribe(value=>{
+        console.log(value);
+    });
+    const formArray= new FormArray([
+        new FormControl('John',Validators.required),
+        new FormGroup({
+          name:new FormControl('Tom',Validators.required)
+        }),
+        new FormArray([])
+    ])
+
+    const formArray1= this._fb.array([
+      new FormControl('John',Validators.required),
+      new FormGroup({
+        name:new FormControl('Tom',Validators.required)
+      }),
+      new FormArray([])
+  ]);
+
+  console.log(this.personForm.value);
+  console.log(formArray.value);
+
+  } 
+  
+  addrow(){
+    
   }
   submit(){
      console.log(this.personForm);
@@ -76,9 +112,14 @@ export class ReactiveDemoComponent implements OnInit {
   }
 }
 
+
 // FormGroup and FormControl - to create a control tree in reactive form approach
 // FormGroup- This is to create a group of FormControl inside it
 // FormControl- Individual control in the form group. To create a individual control in form group 
 // we use the instance of FormControl
 // FormGroup can have Nested formGroup in it
 // required, email, Pattern, Min, Max, MinLength, MaxLength
+//Form Group and Formcontrol classes inherit from AbstractControl ( base class)
+// AbstractControl class have a property of ValueChanges ( returning Observable)
+
+//FormArray - its an array. it can contain FormGroup,Formcontrol and nested formArray

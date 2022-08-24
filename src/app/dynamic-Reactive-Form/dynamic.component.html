@@ -1,0 +1,89 @@
+<form  [formGroup]="personForm" (ngSubmit)="submit()">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <h1 class="h1-top">Person</h1>
+        </div>
+        
+      </div>
+      
+      <div class="row">
+        <div class="col-md-1"></div>
+      <div class="col-md-3">
+        <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>Full Name</mat-label>
+            <input  matInput type="text" formControlName="name">
+            <mat-error *ngIf="personForm.get('name')!.errors!==null && personForm.get('name')!.errors!['required']">
+            Name is required
+            </mat-error>
+          </mat-form-field>
+          
+        </div>
+        <div class="col-md-3">
+          <mat-form-field class="example-form-field" appearance="fill">
+              <mat-label>Age</mat-label>
+              <input matInput type="text" formControlName="age" >
+             <mat-error *ngIf="personForm.get('age')!.errors!==null && personForm.get('age')!.errors!['min']">
+             Age must be greater than 0.
+             </mat-error>
+             <mat-error *ngIf="personForm.get('age')!.errors!==null && personForm.get('age')!.errors!['max']">
+                Age must be less than 100.
+                </mat-error>
+                <mat-error *ngIf="personForm.get('age')!.errors!==null && personForm.get('age')!.errors!['required']">
+                    Age is required.
+                    </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-3">
+            <mat-form-field class="example-form-field" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput type="text" formControlName="email">
+                <mat-error *ngIf="personForm.get('email')!.errors!==null && personForm.get('email')!.errors!['emailmismatch']">
+                  Email is invalid.
+                  </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-md-2"></div>
+      </div>
+      <div formGroupName="skills" class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+          <button mat-raised-button (click)="addrow()" class="btn btn-primary">Add Skill</button>
+          </div>
+      <div class="col-md-3">
+        <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>Skill</mat-label>
+            <input matInput type="text" formControlName="skillName">
+            <mat-error *ngIf="personForm.get('skills.skillName')!.errors!==null && personForm.get('skills.skillName')!.errors!['required']">
+                Skill is required.
+                </mat-error>
+                <mat-error *ngIf="personForm.get('skills.skillName')!.errors!==null && personForm.get('skills.skillName')!.errors!['minlength']">
+                    Skill name atleast contains 3 characters.
+                    </mat-error>
+                    <mat-error *ngIf="personForm.get('skills.skillName')!.errors!==null && personForm.get('skills.skillName')!.errors!['maxlength']">
+                        Skill name atmost contains 10 characters.
+                        </mat-error>
+          </mat-form-field>
+          
+        </div>
+        <div class="col-md-3">
+          <mat-form-field class="example-form-field" appearance="fill">
+              <mat-label>Experience</mat-label>
+              <input matInput type="text" formControlName="experience" >
+             
+            </mat-form-field>
+          </div>
+        
+            <div class="col-md-2"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"></div>
+      <div class="col-md-1 ">
+        <button mat-raised-button class="btn btn-primary">Create</button>
+        </div>
+        <div class="col-md-1 ">
+            <!-- <button mat-raised-button (click)="loaddata()" class="btn btn-success">Load Data</button> -->
+            </div>
+      </div>
+    </form>
+ 

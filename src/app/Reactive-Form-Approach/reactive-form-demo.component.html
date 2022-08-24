@@ -12,8 +12,8 @@
   <div class="col-md-3">
     <mat-form-field class="example-form-field" appearance="fill">
         <mat-label>Full Name</mat-label>
-        <input matInput type="text" formControlName="name">
-        <mat-error *ngIf="personForm.get('name')!.errors!['required']">
+        <input  matInput type="text" formControlName="name">
+        <mat-error *ngIf="personForm.get('name')!.errors!==null && personForm.get('name')!.errors!['required']">
         Name is required
         </mat-error>
       </mat-form-field>
@@ -35,16 +35,21 @@
         </mat-form-field>
       </div>
       <div class="col-md-3">
-        <!-- <mat-form-field class="example-form-field" appearance="fill">
-            <mat-label>Last Name</mat-label>
-            <input matInput type="text" >
-           
-          </mat-form-field> -->
+        <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput type="text" formControlName="email">
+            <mat-error *ngIf="personForm.get('email')!.errors!==null && personForm.get('email')!.errors!['emailmismatch']">
+              Email is invalid.
+              </mat-error>
+          </mat-form-field>
         </div>
         <div class="col-md-2"></div>
   </div>
   <div formGroupName="skills" class="row">
     <div class="col-md-1"></div>
+    <div class="col-md-3">
+      <button mat-raised-button (click)="addrow()" class="btn btn-primary">Add Skill</button>
+      </div>
   <div class="col-md-3">
     <mat-form-field class="example-form-field" appearance="fill">
         <mat-label>Skill</mat-label>
@@ -68,13 +73,7 @@
          
         </mat-form-field>
       </div>
-      <div class="col-md-3">
-        <!-- <mat-form-field class="example-form-field" appearance="fill">
-            <mat-label>Last Name</mat-label>
-            <input matInput type="text" >
-           
-          </mat-form-field> -->
-        </div>
+    
         <div class="col-md-2"></div>
   </div>
   <div class="row">

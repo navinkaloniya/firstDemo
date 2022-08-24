@@ -28,6 +28,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { EmpDataService } from 'src/Services/Employee/emp-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveDemoComponent } from './Reactive-Form-Approach/reactive-form-demo.component';
+import { ReactiveDynamicComponent } from './dynamic-Reactive-Form/dynamic.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { ReactiveDemoComponent } from './Reactive-Form-Approach/reactive-form-de
   DirectiveComponent,  HighLightDirective,DepartmentComponent,
   ContentProjectComponent,TemplateFormComponent, ModelapproachComponent,
   SelectValidator,
-  PageNotFoundComponent,ReactiveDemoComponent
+  PageNotFoundComponent,ReactiveDemoComponent,ReactiveDynamicComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +48,7 @@ import { ReactiveDemoComponent } from './Reactive-Form-Approach/reactive-form-de
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
+
     HttpClientInMemoryWebApiModule.forRoot(EmpDataService)
     //RouterModule.forRoot(routes)
   ],
