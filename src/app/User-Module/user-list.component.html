@@ -1,0 +1,36 @@
+
+<div class="col-md-6">
+<table class="table table-striped" border="1">
+    <thead>
+        <th>Employee Code</th>
+        <th>Full Name</th>
+        <th>Gender</th>
+        <th>Annual Salary</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+       
+         <tr *ngFor='let emp of employees'>        
+        <td>{{emp.code  }}</td>
+        <td>{{emp.name }}</td>
+        <td>{{emp.gender}}</td>
+        <td>{{emp.salary  }}</td>
+        <!-- <td>{{emp.salary  |number:'4.1-2' }}</td> -->
+        <td>
+            <button class="btn btn-sm btn-primary" type="button" (click)="navigate(emp,'edit')">Edit</button>
+            <button class="btn btn-sm btn-primary" type="button" (click)="navigate(emp,'delete')">Delete</button>
+            <button class="btn btn-sm btn-primary" type="button" (click)="navigate(emp,'view')">View</button>
+            <!-- Required route parameter syntax -->
+            <!-- <a class="btn btn-sm btn-primary" [routerLink]="['/employee',emp.code]" aria-current="page" href="#">{{emp.name}}</a> -->
+            <!-- Optional route parameter syntax -->
+            <!-- <a class="btn btn-sm btn-success" [routerLink]="['/employee',{code:emp.code}]" aria-current="page" href="#">{{emp.name}}</a> -->
+            <!-- Tag with Query String -->
+            <!-- <a class="btn btn-sm btn-primary" queryParamsHandling="preserve" [queryParams]="{'empcode':'123'}"  [routerLink]="['/employee',emp.code]" aria-current="page" href="#">{{emp.name}}</a> -->
+        
+        </td>
+        </tr>
+    <tr *ngIf="employees.length==0" >
+        <td colspan="4"> No Employee(s) record found.</td>
+    </tr>
+</tbody>
+</table>

@@ -44,6 +44,7 @@ import {MatIconModule} from '@angular/material/icon';
   ],
   imports: [
     BrowserModule,
+    //UserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
@@ -51,6 +52,7 @@ import {MatIconModule} from '@angular/material/icon';
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
+
 MatMenuModule,
 MatIconModule,
     HttpClientInMemoryWebApiModule.forRoot(EmpDataService)
@@ -62,5 +64,7 @@ MatIconModule,
 })
 export class AppModule { }
 
+//Eager Loading - Default loading strategy to load all modules
+// Lazy Loading - We are delaying the loading of feature module untill we require it
 // Root Module of the angular application
 // Features Modules
