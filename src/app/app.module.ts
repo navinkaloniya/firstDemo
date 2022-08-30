@@ -29,6 +29,9 @@ import { EmpDataService } from 'src/Services/Employee/emp-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveDemoComponent } from './Reactive-Form-Approach/reactive-form-demo.component';
 import { ReactiveDynamicComponent } from './dynamic-Reactive-Form/dynamic.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -48,7 +51,8 @@ import { ReactiveDynamicComponent } from './dynamic-Reactive-Form/dynamic.compon
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
-
+MatMenuModule,
+MatIconModule,
     HttpClientInMemoryWebApiModule.forRoot(EmpDataService)
     //RouterModule.forRoot(routes)
   ],

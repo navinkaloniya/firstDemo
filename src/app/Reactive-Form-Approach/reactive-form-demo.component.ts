@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms';
+import { EmployeeService } from 'src/Services/Employee/employee.service';
 import { CustomValidators } from 'src/validations/validators';
 
 @Component({
@@ -10,7 +11,8 @@ import { CustomValidators } from 'src/validations/validators';
 export class ReactiveDemoComponent implements OnInit {
   
   personForm!:FormGroup;
-  constructor(private _fb:FormBuilder) { }
+  constructor(private _fb:FormBuilder,
+    private _empService:EmployeeService) { }
  
   ngOnInit(): void {
     // this.personForm= new FormGroup({
@@ -22,6 +24,13 @@ export class ReactiveDemoComponent implements OnInit {
     //   })
     // });
 
+    this._empService.loggedIn$.subscribe((data:boolean)=>{
+      console.log('Value from employee Service in Reactive form component : '+data);
+
+// assign the property
+
+          });
+          
     this.personForm= this._fb.group({
       name:['',Validators.required],
       //validation withour parameter
@@ -57,14 +66,13 @@ export class ReactiveDemoComponent implements OnInit {
       }),
       new FormArray([])
   ]);
-
   console.log(this.personForm.value);
   console.log(formArray.value);
 
   } 
   
   addrow(){
-    
+
   }
   submit(){
      console.log(this.personForm);

@@ -57,10 +57,13 @@ export class DepartmentComponent{
         //this.dataSource= this._empService.getEmployees();
     }
     submit(form:NgForm){
+      let loggedin=true;
+      this._empService.loggedIn$.next(loggedin);
+
 console.log(this.emp);
-this._empService.createEmployeebyApi(this.emp);
-this._empService.DeleteEmployeebyApi(this.emp.code);
-this.route.navigate(['/employee-list']);
+// this._empService.createEmployeebyApi(this.emp);
+// this._empService.DeleteEmployeebyApi(this.emp.code);
+//this.route.navigate(['/employee-list']);
     }
 }
 

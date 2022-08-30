@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { EmployeeService } from 'src/Services/Employee/employee.service';
 
 // @Component({
 //   selector: 'app-root',
@@ -18,7 +19,17 @@ import { Component } from '@angular/core'
 export class AppComponent {
   userInput:string = '';
   name:string="John";
+isloggedIn:boolean=false;
+  constructor(private _empService:EmployeeService)
+  {
 
+  }
+  ngOnInit(){
+    this._empService.loggedIn$.subscribe((data:boolean)=>{
+console.log('Value from employee Service in App component : '+data);
+this.isloggedIn=data;
+    });
+  }
   getdata():string {
     return this.userInput+this.name;
   }

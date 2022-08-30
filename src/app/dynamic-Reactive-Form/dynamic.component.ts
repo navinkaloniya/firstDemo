@@ -23,12 +23,12 @@ export class ReactiveDynamicComponent implements OnInit {
         skillName:['',[Validators.minLength(3),Validators.maxLength(10),Validators.required]],
         experience:[]
       })
-    });
+    });  
 }
-addrow(){
+addrow(){ 
 
 }
 submit(){
-    
+
 }
 }

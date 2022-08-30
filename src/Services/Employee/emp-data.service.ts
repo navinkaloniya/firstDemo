@@ -12,13 +12,15 @@ export class EmpDataService implements InMemoryDbService{
     // }
     createDb() {
        return {
+       // http://localhost:4200/api/employees
         employees: [
-            {code:'1',name:'TOM',gender:'male',salary:3000},
+            {id:1,code:'1',name:'TOM',gender:'male',salary:3000},
             {code:'2',name:'Sara',gender:'female',salary:4000.656465},
             {code:'3',name:'Nick',gender:'male',salary:8000.565515},
             {code:'4',name:'Mary',gender:'female',salary:7000},
             {code:'5',name:'Mark',gender:'male',salary:3000.256444}
         ],
+        // localhost:4200/api/depts
         depts:[
             
         ]

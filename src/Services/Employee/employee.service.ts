@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable} from '@angular/core'
-import { catchError, Observable, of, ReplaySubject, throwError } from 'rxjs';
+import { catchError, Observable, of, ReplaySubject, Subject, throwError } from 'rxjs';
 import { IEmployee } from 'src/Model/Employee/employeeModel';
 
 
@@ -10,8 +10,9 @@ import { IEmployee } from 'src/Model/Employee/employeeModel';
 // IN this case it does not have any dependency so the parameter list is empty
 @Injectable()
 export class EmployeeService {
-    employeeURL:string='api/employees1';
+    employeeURL:string='api/employees';
     employees:any;
+    loggedIn$:any= new Subject(); 
     constructor(private _http:HttpClient){
 
     }
