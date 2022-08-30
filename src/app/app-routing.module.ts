@@ -21,7 +21,11 @@ const routes:Routes=[
   {path:'',redirectTo:'employee',pathMatch:'full'},
   {path:'reactive-form',component:ReactiveDemoComponent},
   {path:'dynamic-form',component:ReactiveDynamicComponent},
+  {path:'user',
+  loadChildren:()=>import('./User-Module/user-list-module.module').then(x=>x.UserModule)
+  },
   {path:'**',component:PageNotFoundComponent}
+  
 ];
 
 @NgModule({
