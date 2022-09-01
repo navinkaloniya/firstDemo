@@ -11,11 +11,10 @@ import { UserRoutingModule } from './user-routing.module';
 
 @NgModule({
   declarations: [CreateUserComponent,DeleteUserComponent,EditUserComponent,UserComponent],
-  imports: [
+  imports: [  
     CommonModule,
-    RouterModule,
     UserRoutingModule
   ],
-  exports:[CreateUserComponent,DeleteUserComponent,EditUserComponent,UserComponent,RouterModule]
+  exports:[CreateUserComponent,DeleteUserComponent,EditUserComponent,UserComponent]
 })
 export class UserModule { }

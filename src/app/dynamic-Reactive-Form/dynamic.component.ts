@@ -1,5 +1,7 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms';
+import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 import { CustomValidators } from 'src/validations/validators';
 
 @Component({
@@ -9,26 +11,53 @@ import { CustomValidators } from 'src/validations/validators';
 })
 export class ReactiveDynamicComponent implements OnInit {
   
-  personForm!:FormGroup;
-  constructor(private _fb:FormBuilder) { }
+  //You can not define the default value in the subject
+  //obj$= new Subject<number>();
+
+  // To define the default value for the subject use behaviour subject
+  obj$= new BehaviorSubject<number>(1);
+
+  // it is used to store the value emited previously. Parameter define the count
+  // bow many value i want to preserve
+  repObj$= new ReplaySubject<number>(3);
+
+  constructor() { }
  
   ngOnInit(): void {
-  
-
-    this.personForm= this._fb.group({
-      name:['',Validators.required],     
-      email:['',[Validators.required,CustomValidators.emailCheckParam('gmail')]],
-      age:[,[Validators.min(1),Validators.max(100),Validators.required]],
-      skills:this._fb.group({
-        skillName:['',[Validators.minLength(3),Validators.maxLength(10),Validators.required]],
-        experience:[]
-      })
-    });  
-}
-addrow(){ 
-
+  console.log("called");
+    this.obj$.subscribe(d=>{
+      console.log(" NG Onit :"+d);
+    })
 }
 submit(){
+  this.obj$.next(567); 
+  //NG Onit: 567
+  this.obj$.subscribe(d=>{
+    console.log("  method 1 :"+d);
+  })
 
+  this.obj$.next(678);  // this.obj$.next(567);  this.obj$.next(678);
+  this.obj$.subscribe(d=>{
+    console.log("  method 2 :"+d);
+  })
+  this.obj$.next(888);
+}
+click(){
+  this.obj$.next(999);
+  this.obj$.subscribe(d=>{
+    console.log("  click method  :"+d);
+  })
+}
+
+replay(){
+  this.repObj$.next(1);
+  this.repObj$.next(2);
+  this.repObj$.next(3);
+  this.repObj$.next(4);
+  this.repObj$.subscribe(d=> console.log(d));
+  
+  this.repObj$.subscribe(d=> console.log(d));
 }
 }
+
+
