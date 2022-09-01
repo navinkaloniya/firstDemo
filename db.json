@@ -1,0 +1,18 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "employees": [
+            {"id":1,"code":1,"name":"TOM","gender":"male","salary":3000},
+            {"id":2,"code":2,"name":"Mark","gender":"Female","salary":4000},
+            {"id":3,"code":3,"name":"Mary","gender":"male","salary":3000},
+            {"id":4,"code":4,"name":"Nick","gender":"male","salary":4000}
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
