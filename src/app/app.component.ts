@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
 import { EmployeeService } from 'src/Services/Employee/employee.service';
 
 // @Component({
@@ -20,9 +21,22 @@ export class AppComponent {
   userInput:string = '';
   name:string="John";
 isloggedIn:boolean=false;
-  constructor(private _empService:EmployeeService)
-  {
 
+showLoadingindicator:boolean=false;
+  constructor(private _empService:EmployeeService,
+    private _router:Router)
+  {
+    this._router.events.subscribe((eventData)=>{
+      if(eventData instanceof NavigationStart){
+       this.showLoadingindicator= true;
+      }
+      if(eventData instanceof NavigationEnd ||
+        eventData instanceof NavigationCancel||
+        eventData instanceof NavigationError ){
+        this.showLoadingindicator=false;
+      }
+    })
+ 
   }
   ngOnInit(){
     this._empService.loggedIn$.subscribe((data:boolean)=>{
