@@ -10,15 +10,11 @@
           <li class="nav-item">
             <a class="nav-link active" [routerLink]="['employee',2]" aria-current="page" href="#">Employees</a>
           </li>
-          <li class="nav-item"> 
-            <a class="nav-link" routerLink="employee-list" href="#">Employee List</a>
-          </li>
+          
           <li class="nav-item">
             <a class="nav-link" routerLink="dept" href="#">Department</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="person" href="#">Person</a>
-          </li>
+          
           <li class="nav-item">
             <a class="nav-link" routerLink="reactive-form" href="#">Reactive Form</a>
           </li>
@@ -28,12 +24,22 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="user" href="#">Users</a>
           </li>
+          <li class="nav-item"> 
+            <a class="nav-link" routerLink="employee-list" href="#">Employee List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="model" href="#">Model</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="person" href="#">Person</a>
+          </li>
         </ul>
         
       </div>
     </div>
    
   </nav>
+  <mat-spinner *ngIf="showLoadingindicator" class="spinner" [diameter]="40" ></mat-spinner>
   <!-- <login *ngIf="!isloggedIn"></login>
   <register *ngIf="isloggedIn"></register> -->
   <router-outlet></router-outlet>

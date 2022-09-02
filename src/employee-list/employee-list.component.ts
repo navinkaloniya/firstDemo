@@ -1,6 +1,6 @@
 import{Component} from '@angular/core'
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { IEmployee} from 'src/Model/Employee/employeeModel'
 import { EmployeeService } from 'src/Services/Employee/employee.service';
 import { UserService } from 'src/Services/user/user.service';
@@ -24,8 +24,9 @@ export class EmployeeListComponent{
     constructor(private _empService:EmployeeService,
         private _userService:UserService,
         private dialog:MatDialog,
-        private _router:Router){
+        private _router:Router,private _route:ActivatedRoute){
       
+            this.employees= _route.snapshot.data['empList'];
     }
     //Get the color from service
 //  getcolour():string {
@@ -41,9 +42,9 @@ this._userService.backcolor= value.target.value;
         //this.employees= this._empService.getEmployees();
 
         // To get the data from observable 
-        this._empService.getEmployeeByApi().subscribe((empdata)=>{
-            this.employees= empdata;
-        })
+        // this._empService.getEmployeeByApi().subscribe((empdata)=>{
+        //     this.employees= empdata;
+        // })
         this.colour= this._userService.backcolor;
     }
         

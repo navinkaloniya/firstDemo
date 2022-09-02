@@ -30,3 +30,8 @@ section {
     width: 120px;
   }
 
+  .spinner{
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+  }

@@ -31,7 +31,10 @@ import { ReactiveDemoComponent } from './Reactive-Form-Approach/reactive-form-de
 import { ReactiveDynamicComponent } from './dynamic-Reactive-Form/dynamic.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
-
+import { CreateUserCanDeactivateGuardService } from 'src/Services/user/create-user-candeactivate-guard.service';
+import { EmployeeDetailsCanActivateGuardService } from 'src/Services/Employee/emp-details-can-activate.service';
+import { EmployeeListResolverService } from 'src/Services/Employee/emp-list-resolver.service';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -52,13 +55,14 @@ import {MatIconModule} from '@angular/material/icon';
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
-
+MatProgressSpinnerModule,
 MatMenuModule,
 MatIconModule,
     HttpClientInMemoryWebApiModule.forRoot(EmpDataService)
     //RouterModule.forRoot(routes)
   ],
-  providers: [EmployeeService,UserService],
+  providers: [EmployeeService,UserService,CreateUserCanDeactivateGuardService,
+  EmployeeDetailsCanActivateGuardService, EmployeeListResolverService],
   bootstrap: [AppComponent],
   
 })

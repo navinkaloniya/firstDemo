@@ -1,5 +1,6 @@
 import { Component} from'@angular/core'
 import { ActivatedRoute, TitleStrategy } from '@angular/router';
+import { IEmployee } from 'src/Model/Employee/employeeModel';
 import { EmployeeService } from 'src/Services/Employee/employee.service';
 import { UserService } from 'src/Services/user/user.service';
 
@@ -37,16 +38,20 @@ export class EmployeeComponent {
      }
 
     ngOnInit(){
-    // this.EmployeeId= this._route.snapshot.paramMap.get('id');
-     this.EmployeeId= this._route.snapshot.paramMap.get('code');
+     this.EmployeeId= this._route.snapshot.paramMap.get('id');
+     //this.EmployeeId= this._route.snapshot.paramMap.get('code');
      this.colour= this._userService.backcolor;
      if(this._route.snapshot.queryParamMap.has('empcode')){
 
 this.empCode= this._route.snapshot.queryParamMap.get('empcode')!;
      }
    let keys:string[]=  this._route.snapshot.queryParamMap.keys;
-   this._empService.getempbyid('1').subscribe((data)=>{
-    console.log(data);
+   this._empService.getempbyid(this.EmployeeId as string).subscribe((data)=>{
+    if(data){
+   let emp= data as IEmployee;
+    this.firstName= emp.name;
+    this.gender= emp.gender;
+    }
    });
    
     }
