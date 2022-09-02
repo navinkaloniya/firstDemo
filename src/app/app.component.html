@@ -39,7 +39,7 @@
     </div>
    
   </nav>
-  <mat-spinner *ngIf="showLoadingindicator" class="spinner" [diameter]="40" ></mat-spinner>
+  <mat-spinner style="position:absolute;top:50%;left:50%" *ngIf="showLoadingindicator" class="spinner" [diameter]="40" ></mat-spinner>
   <!-- <login *ngIf="!isloggedIn"></login>
   <register *ngIf="isloggedIn"></register> -->
   <router-outlet></router-outlet>
